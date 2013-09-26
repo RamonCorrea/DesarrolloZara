@@ -14,18 +14,36 @@ namespace ProyectoFinal
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        private int estado;
         protected void Page_Load(object sender, EventArgs e)
         {
+            /* PERMITE COMPROBAR SI LA PAGINA YA ENVIO EL ESTADO A BusquedaUsuario.aspx */
+            if (Request.QueryString["state"] == null)
+            {
+                estado = 0;
+            }
+            else
+            {
+                estado = Convert.ToInt32(Request.QueryString["state"]);
+            }
+           
             /* TOMA LOS VALORES PASADOS POR URL DE BusquedaUsuario.aspx */
             txtCodigo_emple.Text = Request.QueryString["codigo"];
             txtFecha.Text = Request.QueryString["fecha"];
             lblNombre.Text = Request.QueryString["nombre"] + " " + Request.QueryString["ape_pa"] + " " + Request.QueryString["ape_mat"];
+            
+            if (estado == 1)
+            {
+                DropDownList3.SelectedIndex = Convert.ToInt32(Request.QueryString["indi"]);
+                estado = 0;
+            }
+            
             lblDato.Text = DropDownList3.SelectedValue;
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            Server.Transfer("BusquedaUsuario.aspx?agrupacion=" + lblDato.Text + "&fecha=" + Session["fecha"].ToString());
+            Server.Transfer("BusquedaUsuario.aspx?agrupacion=" + lblDato.Text + "&fecha=" + Session["fecha"].ToString() + "&indice=" + Session["indice"].ToString() + "&estado=" + Session["estado1"].ToString());
         }
 
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
@@ -36,8 +54,13 @@ namespace ProyectoFinal
 
         protected void DropDownList3_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            /* SE OBTIENE EL INDICE DEL ELEMENTO SELECIONADO */
             lblDato.Text = DropDownList3.SelectedValue;
+            estado = 1;
+            Session["estado1"] = estado;
+            Session["indice"] = DropDownList3.SelectedIndex;
         }
+
 
         /* FUNCION QUE SE ENCARGA DE CREAR Y LLENAR LA TABLA */
         public void LlenaTabla()

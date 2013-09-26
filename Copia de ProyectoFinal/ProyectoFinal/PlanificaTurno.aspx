@@ -23,17 +23,16 @@
                 <div>
                     <table style="width: 632px">
                         <tr>
-                            <td style="height: 33px; width: 134px;">
+                            <td style="height: 33px; width: 195px;">
                                 <asp:Label ID="lblSeccion" runat="server" Text="Seccion:" 
                                     style="text-align: right"></asp:Label>
                             </td>
 
-                            <td>
+                            <td style="width: 256px">
                                <asp:DropDownList ID="DropDownList3" runat="server"
-                                    AutoPostBack="True" 
-                                    onselectedindexchanged="DropDownList3_SelectedIndexChanged1" 
+                                    onselectedindexchanged="DropDownList3_SelectedIndexChanged1"
                                     DataSourceID="SqlDataSource1" DataTextField="DESC_AGRUPA" 
-                                    DataValueField="COD_AGRUPA">
+                                    DataValueField="COD_AGRUPA" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:ConexionBaseDatos %>" 
@@ -53,12 +52,12 @@
                         </tr>
 
                         <tr>
-                            <td style="width: 134px">
+                            <td style="width: 195px">
                                 <asp:Label ID="lblCod_emple" runat="server" Text="Codigo Empleado:" 
                                     style="text-align: right"></asp:Label>
                             </td>
 
-                            <td style="width: 170px">
+                            <td style="width: 256px">
                                 <asp:TextBox ID="txtCodigo_emple" runat="server"></asp:TextBox>
                             </td>
 
@@ -71,12 +70,12 @@
                                 &nbsp;</td>
                         </tr>
                          <tr>
-                            <td style="width: 134px">
+                            <td style="width: 195px">
                                 <asp:Label ID="lblFecha" runat="server" Text="Fecha Operar:" 
                                     style="text-align: right"></asp:Label>
                             </td>
 
-                            <td style="width: 170px">
+                            <td style="width: 256px">
                                 <asp:TextBox ID="txtFecha" runat="server" AutoPostBack="True"></asp:TextBox>
                                 <asp:RequiredFieldValidator ControlToValidate="txtFecha" Display="Dynamic"
                                       ErrorMessage="Ingrese Fecha" runat="server" ID="vFecha">
@@ -88,7 +87,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 134px"> <asp:Button ID="btnCarga" runat="server" Text="Listar Turno" 
+                            <td style="width: 195px"> <asp:Button ID="btnCarga" runat="server" Text="Listar Turno" 
                                     onclick="btnCarga_Click"/></td>
                         </tr>
                     </table>
