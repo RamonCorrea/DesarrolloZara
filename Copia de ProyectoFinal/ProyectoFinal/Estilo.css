@@ -1,0 +1,34 @@
+﻿#contenedor
+{
+    border-color: Blue;
+    width: 100%;
+    height: 182px;
+}
+
+#contenidoPage
+    {
+        width: 100%;
+        border-style: solid;
+        border-color: Black
+    }
+
+    #cabezera
+    {
+        background-color: Yellow;
+        border-style: solid;
+        border-color: Black;
+        width: 100%;
+}
+    
+    #Imagen
+    {
+        text-align: center;
+        border-style: solid;
+        border-color: Black;
+        width: 100%;
+}
+    
+    #datos
+    {
+        float:right;
+    }

@@ -1,0 +1,44 @@
+e:\rnazal\mis documentos\visual studio 2010\Projects\ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.dll
+e:\rnazal\mis documentos\visual studio 2010\Projects\ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.pdb
+e:\rnazal\mis documentos\visual studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ResolveAssemblyReference.cache
+e:\rnazal\mis documentos\visual studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.dll
+e:\rnazal\mis documentos\visual studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+E:\rnazal\Mis Documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+E:\rnazal\Mis Documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.read.1.tlog
+E:\rnazal\Mis Documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.write.1.tlog
+E:\rnazal\Mis Documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\bin\BasicFrame.WebControls.BasicDatePicker.xml
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.dll
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.pdb
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\bin\BasicFrame.WebControls.BasicDatePicker.xml
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ResolveAssemblyReference.cache
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.read.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.write.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.dll
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.dll
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.pdb
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ResolveAssemblyReference.cache
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.read.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.write.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.dll
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.dll
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.pdb
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.dll
+C:\Documents and Settings\Usuario\Escritorio\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.dll
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.pdb
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ResolveAssemblyReference.cache
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.read.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.write.1.tlog
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.dll
+D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
