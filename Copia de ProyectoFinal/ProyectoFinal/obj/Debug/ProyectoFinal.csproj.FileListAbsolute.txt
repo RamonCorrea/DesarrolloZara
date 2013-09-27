@@ -42,3 +42,11 @@ D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\1
 D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.write.1.tlog
 D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.dll
 D:\Documents and Settings\rcorrea01\Mis documentos\Visual Studio 2010\Projects\16-09-2013\PROYECTOS-LOGAM\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.dll
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\bin\ProyectoFinal.pdb
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.read.1.tlog
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\GenerateResource.write.1.tlog
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.dll
+D:\Proyectos\Copia de ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb

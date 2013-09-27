@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ProyectoFinal
 {
@@ -38,6 +40,8 @@ namespace ProyectoFinal
             int MesSiguiente = Fecha.Month + 1;
             DateTime PrimerDia;
             DateTime UltimoDia;
+            string cadena1;
+            string cadena2;
 
             /* ESTA FUNCION PERMITE CALCULAR LA CANTIDAD DE DIAS QUE TIENE UN MES, EN BASE ALA FECHA PASADA COMO PARAMETRO
                  * ESTA HACE AVANZAR LA FECHA PASADA COMO PARAMETRO AL MES SIGUIENTE, PARA LUEGO RESTARLE 1 PARA ASI OBTENER EL ULTIMO
@@ -70,22 +74,42 @@ namespace ProyectoFinal
                 FirstDay = Convert.ToString(Dias[PrimerDia.DayOfWeek.ToString()]);
                 LastDay = Convert.ToString(Dias[UltimoDia.DayOfWeek.ToString()]);
             }
-
+            cadena1 = PrimerDia.ToString("dd/MM/yyyy");
+            cadena2 = UltimoDia.ToString("dd/MM/yyyy");
+            
             ArrayList Datos = new ArrayList();
             Datos.Add(CantidadDias);
             Datos.Add(FirstDay);
             Datos.Add(LastDay);
-            Datos.Add(PrimerDia);
-            Datos.Add(UltimoDia);
+            Datos.Add(cadena1);
+            Datos.Add(cadena2);
 
             return Datos;
+        }
+
+        /* FUNCION LA CUAL PERMITE SACAR LOS TURNOS DE UN EMPLEADO ESPECIFIO Y LOS DEVUELVE EN UN HASHTABLE (CLAVE,VALOR) */
+        public ArrayList TurnoEmpleadoPorFecha(string cod_empleado, string fecha_ini, string fecha_fin)
+        {
+                /* CONEXION A LA BASE DE DATOS Y EJECUCION DE SP */
+                ConexionBaseDato conn = new ConexionBaseDato();
+                string sqlQuery = "EXEC PROC_TURNO_EMPLEADO '" + cod_empleado + "','" + fecha_ini + "','" + fecha_fin + "'";
+
+                /* SE PASA EL RESULTADO DE LA CONSULTA A UN DATATABLE, EL CUAL SE RECORRE PARA SACAR LOS DATOS DEL TURNO (FECHA,COD_TURNO) 
+                 * LOS CUALES LUEGO SON GUARDADOS EN UN HASHTABLE */
+                DataTable TablaBD = new DataTable();
+                SqlDataAdapter ds = new SqlDataAdapter(sqlQuery, conn.AbrirConexion());
+                ds.Fill(TablaBD);
+                ArrayList TurnoEmpleado = new ArrayList();
+
+                foreach (DataRow rows in TablaBD.Rows)
+                {
+                    TurnoEmpleado.Add(rows["Fecha"].ToString());
+                    TurnoEmpleado.Add(rows["COD_TURNO"].ToString());
+                }
+
+                conn.CerrarConexion();
+                return TurnoEmpleado;
         }
     }
 }
 
-/* -------------------------------------------------------------------- */
-/* for (int i = 0; i < Lista.Count; i++)
-            {
-                Console.WriteLine(Lista[i]);
-            }
-*/

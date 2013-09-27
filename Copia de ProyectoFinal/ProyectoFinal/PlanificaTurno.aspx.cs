@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BasicFrame.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
@@ -67,20 +66,25 @@ namespace ProyectoFinal
         {
             TrabajoDeFecha myfecha = new TrabajoDeFecha(Session["fecha"].ToString());
             ArrayList datos = myfecha.CantidadDiaMes();
-            AsignarPrimerDia(datos[1].ToString(), Convert.ToInt32(datos[0].ToString()));
+            AsignarPrimerDia(datos[1].ToString(), Convert.ToInt32(datos[0].ToString()), datos[3].ToString(), datos[4].ToString());
         }
 
         /* FUNCION QUE SE ENCARGA DEL LLENADO DE LA TABLA, COLOCANDO TANTO LOS TURNOS COMO LOS DIAS CORRESPONDIENTES 
          * AL MES EN CURSO */
-        public void AsignarPrimerDia(string primerDia, int cantiDias)
+        public void AsignarPrimerDia(string primerDia, int cantiDias, string fecha_ini, string fecha_fin)
         {
             /* ESTADO CONTROLA SI YA SE HA ESTABLECIDO EL PRIMER DIA, 0 SIGNIFICA QUE TODAVIA NO SE HA ESTABLECIDO */
             int contador = 1;
             int estadoInicial = 0;
+            int contadorTurnos = 0;
+            TrabajoDeFecha fecha = new TrabajoDeFecha(Session["fecha"].ToString());
+
+            ArrayList turnosEmpleado = fecha.TurnoEmpleadoPorFecha(txtCodigo_emple.Text, fecha_ini, fecha_fin);
 
             for (int i = 0; i < 7; i++)
             {
                 TableRow fila = new TableRow();
+                TableRow fila2 = new TableRow();
 
                 for (int j = 0; j < 7; j++)
                 {
@@ -114,8 +118,34 @@ namespace ProyectoFinal
                         celda.Text = Convert.ToString(contador);
                         fila.Cells.Add(celda);
                     }
+
                 }
                 ListaUsuario.Rows.Add(fila);
+
+                /* RECORRE CELDAS DE LA TABLA COMPARANDO SI EL DIA Y EL DIATURNO SON IGUALES SI ES ASI CREA UNA CELDA LA CUAL TIENE EL
+                 * TURNO DEL EMPLEADO, SINO COLOCA SIN TURNO */
+                for (int x = 0; x < 7; x++)
+                {
+                    if (contadorTurnos > 31)
+                    {
+                        break;
+                    }
+
+                    if (ListaUsuario.Rows[ListaUsuario.Rows.Count].Cells[x].Text == turnosEmpleado[contadorTurnos].ToString())
+                    {
+                        TableCell celda = new TableCell();
+                        celda.Text = turnosEmpleado[contadorTurnos + 1].ToString();
+                        fila2.Cells.Add(celda);
+                        contadorTurnos += 1;
+                    }
+                    else
+                    {
+                        TableCell celda = new TableCell();
+                        celda.Text = "Sin Turno";
+                        fila2.Cells.Add(celda);
+                        contadorTurnos += 1;
+                    }
+                }
             }
         }
 
