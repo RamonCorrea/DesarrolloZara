@@ -24,6 +24,7 @@ namespace ProyectoFinal
             else
             {
                 estado = Convert.ToInt32(Request.QueryString["state"]);
+                Session["CodEmple"] = Request.QueryString["codigo"];
             }
            
             /* TOMA LOS VALORES PASADOS POR URL DE BusquedaUsuario.aspx */
@@ -42,7 +43,7 @@ namespace ProyectoFinal
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            Server.Transfer("BusquedaUsuario.aspx?agrupacion=" + lblDato.Text + "&fecha=" + Session["fecha"].ToString() + "&indice=" + Session["indice"].ToString() + "&estado=" + Session["estado1"].ToString());
+            Server.Transfer("BusquedaUsuario.aspx?agrupacion=" + lblDato.Text + "&fecha=" + Session["fecha"].ToString() + "&indice=" + Session["indice"].ToString() + "&estado=" + Session["estado"].ToString());
         }
 
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
@@ -56,30 +57,31 @@ namespace ProyectoFinal
             /* SE OBTIENE EL INDICE DEL ELEMENTO SELECIONADO */
             lblDato.Text = DropDownList3.SelectedValue;
             estado = 1;
-            Session["estado1"] = estado;
+            Session["estado"] = estado;
             Session["indice"] = DropDownList3.SelectedIndex;
         }
 
 
         /* FUNCION QUE SE ENCARGA DE CREAR Y LLENAR LA TABLA */
-        public void LlenaTabla()
+        public void LlenaTabla(string codEmple)
         {
             TrabajoDeFecha myfecha = new TrabajoDeFecha(Session["fecha"].ToString());
             ArrayList datos = myfecha.CantidadDiaMes();
-            AsignarPrimerDia(datos[1].ToString(), Convert.ToInt32(datos[0].ToString()), datos[3].ToString(), datos[4].ToString());
+            AsignarPrimerDia(datos[1].ToString(), Convert.ToInt32(datos[0].ToString()), datos[3].ToString(), datos[4].ToString(),codEmple);
         }
 
         /* FUNCION QUE SE ENCARGA DEL LLENADO DE LA TABLA, COLOCANDO TANTO LOS TURNOS COMO LOS DIAS CORRESPONDIENTES 
          * AL MES EN CURSO */
-        public void AsignarPrimerDia(string primerDia, int cantiDias, string fecha_ini, string fecha_fin)
+        public void AsignarPrimerDia(string primerDia, int cantiDias, string fecha_ini, string fecha_fin, string cod_empleado)
         {
             /* ESTADO CONTROLA SI YA SE HA ESTABLECIDO EL PRIMER DIA, 0 SIGNIFICA QUE TODAVIA NO SE HA ESTABLECIDO */
+            /* contadorTurnos PERMITE IR EXTRAYENDO LOS TURNOS DEL ARRAYLIST turnoEmpleado */
             int contador = 1;
             int estadoInicial = 0;
             int contadorTurnos = 0;
             TrabajoDeFecha fecha = new TrabajoDeFecha(Session["fecha"].ToString());
 
-            ArrayList turnosEmpleado = fecha.TurnoEmpleadoPorFecha(txtCodigo_emple.Text, fecha_ini, fecha_fin);
+            ArrayList turnosEmpleado = fecha.TurnoEmpleadoPorFecha(cod_empleado, fecha_ini, fecha_fin);
 
             for (int i = 0; i < 7; i++)
             {
@@ -89,7 +91,7 @@ namespace ProyectoFinal
                 for (int j = 0; j < 7; j++)
                 {
                     /* ESTABLECE EL PRIMER DIA DEL MES */
-                    if (primerDia == ListaUsuario.Rows[0].Cells[j].Text && estadoInicial == 0)
+                    if ((primerDia == ListaUsuario.Rows[0].Cells[j].Text) && (estadoInicial == 0))
                     {
                         TableCell celda = new TableCell();
                         celda.Text = "1";
@@ -126,37 +128,50 @@ namespace ProyectoFinal
                  * TURNO DEL EMPLEADO, SINO COLOCA SIN TURNO */
                 for (int x = 0; x < 7; x++)
                 {
-                    if (contadorTurnos > 31)
-                    {
-                        break;
-                    }
+                    int rows = ListaUsuario.Rows.Count - 1;
 
-                    if (ListaUsuario.Rows[ListaUsuario.Rows.Count].Cells[x].Text == turnosEmpleado[contadorTurnos].ToString())
+                    /* VERIFICA QUE SE NO SE PRODUSCA UN DESBORDE EN EL ARRAYLIST turnosEmpleado */
+                    if (contadorTurnos >= turnosEmpleado.Count)
                     {
                         TableCell celda = new TableCell();
-                        celda.Text = turnosEmpleado[contadorTurnos + 1].ToString();
+                        celda.Text = "Sin Turno";
+                        celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
-                        contadorTurnos += 1;
+                    }
+                    /* EN CASO DE LA CELDA CORRESPONDIENTE AL DIA DEL MES DIGA Vacio ESTE LO DEJA COMO SIN TURNO */
+                    else if (ListaUsuario.Rows[rows].Cells[x].Text == "Vacio")
+                    {
+                        TableCell celda = new TableCell();
+                        celda.Text = "Sin Turno";
+                        celda.Font.Bold = true;
+                        fila2.Cells.Add(celda);
+                    }
+                    /* ASIGNA TURNO CUANDO EL DIA DE LA TABLA SE CORRESPONDA CON EL DEL TURNO
+                     * SE APLICAN CONVERSIONES A INT PARA PODER REALIZAR COMPARACION */
+                    else if (Convert.ToInt32(ListaUsuario.Rows[rows].Cells[x].Text) == Convert.ToInt32(turnosEmpleado[contadorTurnos].ToString()))
+                    { 
+                        TableCell celda = new TableCell();
+                        celda.Text = turnosEmpleado[contadorTurnos + 1].ToString();
+                        celda.Font.Bold = true;
+                        fila2.Cells.Add(celda);
+                        contadorTurnos += 2;
                     }
                     else
                     {
                         TableCell celda = new TableCell();
                         celda.Text = "Sin Turno";
+                        celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
-                        contadorTurnos += 1;
-                    }
+                    }     
                 }
+                /* SE AGREGA FILA2 LA CUAL CONTIENE LAS CELDAS CORRESPONDIENTES A LOS TURNOS */
+                ListaUsuario.Rows.Add(fila2);
             }
         }
 
         protected void btnCarga_Click(object sender, EventArgs e)
         {
-            LlenaTabla();
-            //LlenadoDeTurno();
-            //TableCell celda = new TableCell();
-            //ListBox lista = new ListBox();
-            //celda.Controls.Add(lista);
-            //fila.Cells.Add(celda);
+            LlenaTabla(Session["CodEmple"].ToString());
         }
     }
 }

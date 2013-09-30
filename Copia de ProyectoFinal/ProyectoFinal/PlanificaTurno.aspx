@@ -87,8 +87,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 195px"> <asp:Button ID="btnCarga" runat="server" Text="Listar Turno" 
-                                    onclick="btnCarga_Click"/></td>
+                            <td style="width: 195px"> 
+                                <asp:Button ID="btnCarga" runat="server" Text="Listar Turno" 
+                                    onclick="btnCarga_Click"/>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -109,18 +111,20 @@
                         <tr>
                             <td colspan="3">
                                 <asp:Table ID="ListaUsuario" BorderWidth="1" GridLines="Both" runat="server" 
-                                    Width="787px">
+                                    Width="787px" style="text-align: justify">
                                     <asp:TableRow> 
-                                        <asp:TableHeaderCell>Lunes</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Martes</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Miercoles</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Jueves</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Viernes</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Sabado</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Domingo</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell HorizontalAlign="Center">Lunes</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell HorizontalAlign="Center">Martes</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell HorizontalAlign="Center">Miercoles</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell HorizontalAlign="Center">Jueves</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell HorizontalAlign="Center">Viernes</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell HorizontalAlign="Center">Sabado</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell HorizontalAlign="Center">Domingo</asp:TableHeaderCell>
                                     </asp:TableRow>
                                 </asp:Table>
                             </td>
+                            <td></td>
+                            <td></td>
                          </tr>
                     </table>
                 </div>
