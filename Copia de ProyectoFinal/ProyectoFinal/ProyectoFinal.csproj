@@ -143,7 +143,6 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Turno.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

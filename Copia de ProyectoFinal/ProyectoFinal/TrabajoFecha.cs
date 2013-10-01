@@ -110,6 +110,20 @@ namespace ProyectoFinal
                 conn.CerrarConexion();
                 return TurnoEmpleado;
         }
+
+        /* SE DEVUELVE UN DATATABLE CON TODOS LOS TURNOS CORRESPONDIENTES A LA EMPRESA QUE SE LE PASO POR PARAMETRO */
+        public DataTable TurnosEmpresa(string codEmpresa)
+        {
+            string sqlQuery = "EXEC SP_TURNOS '" + codEmpresa + "'";
+            ConexionBaseDato conn = new ConexionBaseDato();
+            DataTable tabla = new DataTable();
+            SqlDataAdapter ds = new SqlDataAdapter(sqlQuery, conn.AbrirConexion());
+            ds.Fill(tabla);
+
+            conn.CerrarConexion();
+            return tabla;
+        }
+            
     }
 }
 

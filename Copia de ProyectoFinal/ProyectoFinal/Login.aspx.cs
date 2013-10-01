@@ -13,7 +13,7 @@ namespace ProyectoFinal
 {
     public partial class Login : System.Web.UI.Page
     {
-        public static int Cod_Empresa;
+        public static string Cod_Empresa;
         public static double Division;
 
         public string cadena = ConfigurationManager.ConnectionStrings["ConexionBaseDatos"].ConnectionString;
@@ -24,7 +24,7 @@ namespace ProyectoFinal
             Session.Timeout = 40; 
             if (CompruebaBD(txtUsuario.Text, txtPassword.Text))
             {
-                Cod_Empresa = Convert.ToInt32(DropDownList1.SelectedItem.Value);
+                Cod_Empresa = DropDownList1.SelectedItem.Value;
                 Division = Convert.ToDouble(DropDownList2.SelectedItem.Value);
                 Session["USUARIO"] = txtUsuario.Text;
                 FormsAuthentication.RedirectFromLoginPage(txtUsuario.Text, false);

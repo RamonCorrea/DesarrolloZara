@@ -80,6 +80,8 @@ namespace ProyectoFinal
             int estadoInicial = 0;
             int contadorTurnos = 0;
             TrabajoDeFecha fecha = new TrabajoDeFecha(Session["fecha"].ToString());
+            
+            DataTable turnosEmpresa = fecha.TurnosEmpresa(Login.Cod_Empresa);
 
             ArrayList turnosEmpleado = fecha.TurnoEmpleadoPorFecha(cod_empleado, fecha_ini, fecha_fin);
 
@@ -138,7 +140,7 @@ namespace ProyectoFinal
                         celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
                     }
-                    /* EN CASO DE LA CELDA CORRESPONDIENTE AL DIA DEL MES DIGA Vacio ESTE LO DEJA COMO SIN TURNO */
+                    /* EN CASO DE QUE LA CELDA CORRESPONDIENTE AL DIA DEL MES DIGA Vacio ESTE LO DEJA COMO SIN TURNO */
                     else if (ListaUsuario.Rows[rows].Cells[x].Text == "Vacio")
                     {
                         TableCell celda = new TableCell();
