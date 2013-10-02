@@ -14,6 +14,7 @@ namespace ProyectoFinal
     public partial class WebForm1 : System.Web.UI.Page
     {
         private int estado;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             /* PERMITE COMPROBAR SI LA PAGINA YA ENVIO EL ESTADO A BusquedaUsuario.aspx */
@@ -79,10 +80,9 @@ namespace ProyectoFinal
             int contador = 1;
             int estadoInicial = 0;
             int contadorTurnos = 0;
-            TrabajoDeFecha fecha = new TrabajoDeFecha(Session["fecha"].ToString());
+            TrabajoDeFecha fecha = new TrabajoDeFecha(Session["fecha"].ToString());            
             
             DataTable turnosEmpresa = fecha.TurnosEmpresa(Login.Cod_Empresa);
-
             ArrayList turnosEmpleado = fecha.TurnoEmpleadoPorFecha(cod_empleado, fecha_ini, fecha_fin);
 
             for (int i = 0; i < 7; i++)
@@ -153,8 +153,14 @@ namespace ProyectoFinal
                     else if (Convert.ToInt32(ListaUsuario.Rows[rows].Cells[x].Text) == Convert.ToInt32(turnosEmpleado[contadorTurnos].ToString()))
                     { 
                         TableCell celda = new TableCell();
-                        celda.Text = turnosEmpleado[contadorTurnos + 1].ToString();
-                        celda.Font.Bold = true;
+                        DropDownList tur = new DropDownList();
+                        tur.DataSource = turnosEmpresa;
+                        tur.DataTextField = "COD_TURNO";
+                        //celda.Text = turnosEmpleado[contadorTurnos + 1].ToString();
+                        //celda.Font.Bold = true;
+                        tur.Text = turnosEmpleado[contadorTurnos + 1].ToString();
+                        tur.DataBind();
+                        celda.Controls.Add(tur);
                         fila2.Cells.Add(celda);
                         contadorTurnos += 2;
                     }

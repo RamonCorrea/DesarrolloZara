@@ -107,7 +107,6 @@
                             <td colspan="3" align="center" style="height: 40px"> 
                                 <h1 style="height: 31px; width: 770px"> Asignacion de Turnos </h1></td>
                         </tr>
-
                         <tr>
                             <td colspan="3">
                                 <asp:Table ID="ListaUsuario" BorderWidth="1" GridLines="Both" runat="server" 
@@ -123,8 +122,20 @@
                                     </asp:TableRow>
                                 </asp:Table>
                             </td>
-                            <td></td>
-                            <td>
+
+                            <td> 
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label>
+                                        </td>
+                                        <td>
+                                            
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            
                             </td>
                          </tr>
                     </table>
