@@ -1,13 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PlanificaTurno.aspx.cs" Inherits="ProyectoFinal.WebForm1"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server" method="get">
+    <script language="javascript" type="text/javascript">
+        function Open() 
+        {
+            window.open("ModificaTurno.aspx", "Modifica Turno", "width=350,height=400");
+        }
+    </script>
+   <form runat="server" method="post">
     <table>
         <tr>
         <td>
-            <div style="width: 183px">
-            
+            <div style="width: 183px">           
                 <asp:Label ID="lblDato" runat="server" Visible="False"></asp:Label>
-            
             </div>
         </td>
             <td style="width: 259px">
@@ -121,21 +125,6 @@
                                         <asp:TableHeaderCell HorizontalAlign="Center">Domingo</asp:TableHeaderCell>
                                     </asp:TableRow>
                                 </asp:Table>
-                            </td>
-
-                            <td> 
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    
-                                </table>
-                            
                             </td>
                          </tr>
                     </table>

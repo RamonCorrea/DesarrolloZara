@@ -21,6 +21,12 @@ namespace ProyectoFinal
             this.Fecha = Convert.ToDateTime(fechaIn);
         }
 
+        /* CONSTRUCTOR ESPECIAL, PARA PODER ACCERDER A LAS FUNCIONES DE LA CLASE SIN NECESITAR FECHA DE INICIO */
+        public TrabajoDeFecha()
+        {
+            this.Fecha = DateTime.Today;
+        }
+
         public ArrayList CantidadDiaMes()
         {
 

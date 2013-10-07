@@ -36,6 +36,8 @@ namespace ProyectoFinal
             if (estado == 1)
             {
                 DropDownList3.SelectedIndex = Convert.ToInt32(Request.QueryString["indi"]);
+                txtFecha.Text = Request.QueryString["fecha"];
+                txtCodigo_emple.Text = Request.QueryString["codigo"];
                 estado = 0;
             }
             
@@ -81,8 +83,6 @@ namespace ProyectoFinal
             int estadoInicial = 0;
             int contadorTurnos = 0;
             TrabajoDeFecha fecha = new TrabajoDeFecha(Session["fecha"].ToString());            
-            
-            DataTable turnosEmpresa = fecha.TurnosEmpresa(Login.Cod_Empresa);
             ArrayList turnosEmpleado = fecha.TurnoEmpleadoPorFecha(cod_empleado, fecha_ini, fecha_fin);
 
             for (int i = 0; i < 7; i++)
@@ -136,7 +136,10 @@ namespace ProyectoFinal
                     if (contadorTurnos >= turnosEmpleado.Count)
                     {
                         TableCell celda = new TableCell();
-                        celda.Text = "Sin Turno";
+                        LinkButton tur = new LinkButton();
+                        //tur.Attributes.Add("onclick", "Open();");
+                        tur.Text = "Sin Turno";
+                        celda.Controls.Add(tur);
                         celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
                     }
@@ -144,7 +147,10 @@ namespace ProyectoFinal
                     else if (ListaUsuario.Rows[rows].Cells[x].Text == "Vacio")
                     {
                         TableCell celda = new TableCell();
-                        celda.Text = "Sin Turno";
+                        LinkButton tur = new LinkButton();
+                        tur.Attributes.Add("onclick", "Open();");
+                        tur.Text = "Sin Turno";
+                        celda.Controls.Add(tur);
                         celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
                     }
@@ -153,13 +159,11 @@ namespace ProyectoFinal
                     else if (Convert.ToInt32(ListaUsuario.Rows[rows].Cells[x].Text) == Convert.ToInt32(turnosEmpleado[contadorTurnos].ToString()))
                     { 
                         TableCell celda = new TableCell();
-                        DropDownList tur = new DropDownList();
-                        tur.DataSource = turnosEmpresa;
-                        tur.DataTextField = "COD_TURNO";
+                        LinkButton tur = new LinkButton();
                         //celda.Text = turnosEmpleado[contadorTurnos + 1].ToString();
                         //celda.Font.Bold = true;
+                        tur.Attributes.Add("onclick", "Open();");
                         tur.Text = turnosEmpleado[contadorTurnos + 1].ToString();
-                        tur.DataBind();
                         celda.Controls.Add(tur);
                         fila2.Cells.Add(celda);
                         contadorTurnos += 2;
@@ -167,7 +171,10 @@ namespace ProyectoFinal
                     else
                     {
                         TableCell celda = new TableCell();
-                        celda.Text = "Sin Turno";
+                        LinkButton tur = new LinkButton();
+                        //tur.Attributes.Add("onclick", "Open();");
+                        tur.Text = "Sin Turno";
+                        celda.Controls.Add(tur);
                         celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
                     }     
