@@ -14,9 +14,11 @@ namespace ProyectoFinal
     public partial class WebForm1 : System.Web.UI.Page
     {
         private int estado;
+        private int limpia = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             /* PERMITE COMPROBAR SI LA PAGINA YA ENVIO EL ESTADO A BusquedaUsuario.aspx */
             if (Request.QueryString["state"] == null)
             {
@@ -26,18 +28,15 @@ namespace ProyectoFinal
             {
                 estado = Convert.ToInt32(Request.QueryString["state"]);
                 Session["CodEmple"] = Request.QueryString["codigo"];
+                
             }
-           
-            /* TOMA LOS VALORES PASADOS POR URL DE BusquedaUsuario.aspx */
-            txtCodigo_emple.Text = Request.QueryString["codigo"];
-            txtFecha.Text = Request.QueryString["fecha"];
-            lblNombre.Text = Request.QueryString["nombre"] + " " + Request.QueryString["ape_pa"] + " " + Request.QueryString["ape_mat"];
-            
+
             if (estado == 1)
             {
                 DropDownList3.SelectedIndex = Convert.ToInt32(Request.QueryString["indi"]);
                 txtFecha.Text = Request.QueryString["fecha"];
                 txtCodigo_emple.Text = Request.QueryString["codigo"];
+                lblNombre.Text = Request.QueryString["nombre"] + " " + Request.QueryString["ape_pa"] + " " + Request.QueryString["ape_mat"];
                 estado = 0;
             }
             
@@ -47,6 +46,7 @@ namespace ProyectoFinal
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             Server.Transfer("BusquedaUsuario.aspx?agrupacion=" + lblDato.Text + "&fecha=" + Session["fecha"].ToString() + "&indice=" + Session["indice"].ToString() + "&estado=" + Session["estado"].ToString());
+            limpia = 1;            
         }
 
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
@@ -187,6 +187,11 @@ namespace ProyectoFinal
         protected void btnCarga_Click(object sender, EventArgs e)
         {
             LlenaTabla(Session["CodEmple"].ToString());
+        }
+
+        protected void btnLimpia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

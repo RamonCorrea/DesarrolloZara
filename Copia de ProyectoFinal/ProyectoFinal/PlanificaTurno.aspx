@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PlanificaTurno.aspx.cs" Inherits="ProyectoFinal.WebForm1"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PlanificaTurno.aspx.cs" Inherits="ProyectoFinal.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script language="javascript" type="text/javascript">
         function Open() 
@@ -94,6 +94,10 @@
                             <td style="width: 195px"> 
                                 <asp:Button ID="btnCarga" runat="server" Text="Listar Turno" 
                                     onclick="btnCarga_Click"/>
+                            </td>
+                            <td>
+                                <asp:Button ID="btnLimpia" runat="server" Text="limpia" 
+                                    onclick="btnLimpia_Click"/>
                             </td>
                         </tr>
                     </table>
