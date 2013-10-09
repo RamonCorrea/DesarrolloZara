@@ -17,7 +17,8 @@ namespace ProyectoFinal
             string nombre = GridView1.Rows[celda].Cells[2].Text;
             string apellidoPa = GridView1.Rows[celda].Cells[3].Text;
             string apellidoMa = GridView1.Rows[celda].Cells[4].Text;
-            Server.Transfer("PlanificaTurno.aspx?codigo=" + codigo + "&nombre=" + nombre + "&ape_pa=" + apellidoPa + "&ape_mat=" + apellidoMa + "&indi=" + Session["indi"].ToString() +"&fecha=" + Session["Fecha2"].ToString() + "&state=" + Session["state"].ToString());         
+            Server.Transfer("PlanificaTurno.aspx?codigo=" + codigo + "&nombre=" + nombre + "&ape_pa=" + apellidoPa + "&ape_mat=" + apellidoMa + "&indi=" + Session["indi"].ToString() +"&fecha=" + Session["Fecha2"].ToString() + "&state=" + Session["state"].ToString());
+            Page.Session.Clear();
         }
 
         protected void Page_Load(object sender, EventArgs e)

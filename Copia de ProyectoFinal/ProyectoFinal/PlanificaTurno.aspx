@@ -95,9 +95,8 @@
                                 <asp:Button ID="btnCarga" runat="server" Text="Listar Turno" 
                                     onclick="btnCarga_Click"/>
                             </td>
-                            <td>
-                                <asp:Button ID="btnLimpia" runat="server" Text="limpia" 
-                                    onclick="btnLimpia_Click"/>
+                            <td style="width: 195px"> 
+                                <asp:Button ID="Button1" runat="server" Text="Limpiar" onclick="Button1_Click"/>
                             </td>
                         </tr>
                     </table>

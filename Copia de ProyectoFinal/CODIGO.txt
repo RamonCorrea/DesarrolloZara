@@ -38,3 +38,9 @@
             string fecha = BasicDatePicker1.Text;
 
         }
+
+credenciales Zara
+	user = cllogam\logam
+	password = Sant1ago2!
+
+

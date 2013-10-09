@@ -14,11 +14,9 @@ namespace ProyectoFinal
     public partial class WebForm1 : System.Web.UI.Page
     {
         private int estado;
-        private int limpia = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             /* PERMITE COMPROBAR SI LA PAGINA YA ENVIO EL ESTADO A BusquedaUsuario.aspx */
             if (Request.QueryString["state"] == null)
             {
@@ -27,13 +25,13 @@ namespace ProyectoFinal
             else
             {
                 estado = Convert.ToInt32(Request.QueryString["state"]);
-                Session["CodEmple"] = Request.QueryString["codigo"];
-                
+                Session["CodEmple"] = Request.QueryString["codigo"];      
             }
 
             if (estado == 1)
             {
                 DropDownList3.SelectedIndex = Convert.ToInt32(Request.QueryString["indi"]);
+                Session["indi"] = DropDownList3.SelectedIndex;
                 txtFecha.Text = Request.QueryString["fecha"];
                 txtCodigo_emple.Text = Request.QueryString["codigo"];
                 lblNombre.Text = Request.QueryString["nombre"] + " " + Request.QueryString["ape_pa"] + " " + Request.QueryString["ape_mat"];
@@ -46,22 +44,26 @@ namespace ProyectoFinal
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             Server.Transfer("BusquedaUsuario.aspx?agrupacion=" + lblDato.Text + "&fecha=" + Session["fecha"].ToString() + "&indice=" + Session["indice"].ToString() + "&estado=" + Session["estado"].ToString());
-            limpia = 1;            
         }
 
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
         {
             txtFecha.Text = Calendar2.SelectedDate.ToString("dd/MM/yyyy");
             Session["fecha"] = txtFecha.Text;
+            txtCodigo_emple.Text = "";
+            lblNombre.Text = "";
         }
 
         protected void DropDownList3_SelectedIndexChanged1(object sender, EventArgs e)
         {
             /* SE OBTIENE EL INDICE DEL ELEMENTO SELECIONADO */
-            lblDato.Text = DropDownList3.SelectedValue;
             estado = 1;
-            Session["estado"] = estado;
-            Session["indice"] = DropDownList3.SelectedIndex;
+            Session["indice"] = DropDownList3.SelectedIndex;           
+            Session["estado"] = estado;         
+            lblDato.Text = DropDownList3.SelectedValue;
+            txtCodigo_emple.Text = "";
+            txtFecha.Text = "";
+            lblNombre.Text = "";
         }
 
 
@@ -189,9 +191,19 @@ namespace ProyectoFinal
             LlenaTabla(Session["CodEmple"].ToString());
         }
 
-        protected void btnLimpia_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
+             Response.Redirect("PlanificaTurno.aspx");
 
+            /* FUNCION LA CUAL PERMITE ENCRIPTAR LOS DATOS */
+            /* Private Sub Command1_Click()
+                Dim salida As String
+                Dim I
+                    For I = 1 To Len(Text1.Text)
+                    salida = salida & Chr(Asc(Mid$(Text1.Text, I, 1)) Xor 128)
+                Next I
+                Text2.Text = salida
+                End Sub */
         }
     }
 }
