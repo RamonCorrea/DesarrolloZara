@@ -15,7 +15,10 @@ namespace ProyectoFinal
             TrabajoDeFecha fecha = new TrabajoDeFecha();
             DataTable turnosEmpresa = fecha.TurnosEmpresa(Login.Cod_Empresa);
             droTurnos.DataSource = turnosEmpresa;
+            droTurnos.DataValueField = "COD_TURNO";
             droTurnos.DataBind();
+
+            txtTurnoEmple.Text = Request.QueryString["val"];
         }
     }
 }

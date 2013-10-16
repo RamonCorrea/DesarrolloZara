@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PlanificaTurno.aspx.cs" Inherits="ProyectoFinal.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" CodeBehind="PlanificaTurno.aspx.cs" AutoEventWireup="true" Inherits="ProyectoFinal.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script language="javascript" type="text/javascript">
-        function Open() 
+        function Open(turno) 
         {
-            window.open("ModificaTurno.aspx", "Modifica Turno", "width=350,height=400");
+           window.open("ModificaTurno.aspx?val=" + turno , "Modifica Turno", "width=400,height=400");
         }
     </script>
    <form runat="server" method="post">
@@ -23,7 +23,7 @@
             </td>
 
             <td style="width: 666px; border-color:blue">
-                <!-- DIV ENCARGADO DE MANTENER EL RELLENO DE DATOS PARA EL INGRESO DE LOS HORARIOS -->
+                <!-- DIV ENCARGADO DE MANTENER EL RELLENO DE DATOS PARA EL INGRESO DE LOS HORARIOS  -->
                 <div>
                     <table style="width: 632px">
                         <tr>
@@ -86,9 +86,9 @@
                                  </asp:RequiredFieldValidator>
                             </td>
                             <td style="width: 186px">
-                            </td>
+                                &nbsp;</td>
                             <td>
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td style="width: 195px"> 
@@ -115,7 +115,7 @@
                                 <h1 style="height: 31px; width: 770px"> Asignacion de Turnos </h1></td>
                         </tr>
                         <tr>
-                            <td colspan="3">
+                            <td>
                                 <asp:Table ID="ListaUsuario" BorderWidth="1" GridLines="Both" runat="server" 
                                     Width="787px" style="text-align: justify">
                                     <asp:TableRow> 
@@ -128,6 +128,12 @@
                                         <asp:TableHeaderCell HorizontalAlign="Center">Domingo</asp:TableHeaderCell>
                                     </asp:TableRow>
                                 </asp:Table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <br />
+                                <br />
                             </td>
                          </tr>
                     </table>

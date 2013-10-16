@@ -84,11 +84,13 @@ namespace ProyectoFinal
             int contador = 1;
             int estadoInicial = 0;
             int contadorTurnos = 0;
+            int contaIDCeldas = 0;
             TrabajoDeFecha fecha = new TrabajoDeFecha(Session["fecha"].ToString());            
             ArrayList turnosEmpleado = fecha.TurnoEmpleadoPorFecha(cod_empleado, fecha_ini, fecha_fin);
+            //Table ListaUsuario = new Table();
 
             for (int i = 0; i < 7; i++)
-            {
+            {         
                 TableRow fila = new TableRow();
                 TableRow fila2 = new TableRow();
 
@@ -138,9 +140,10 @@ namespace ProyectoFinal
                     if (contadorTurnos >= turnosEmpleado.Count)
                     {
                         TableCell celda = new TableCell();
-                        LinkButton tur = new LinkButton();
-                        //tur.Attributes.Add("onclick", "Open();");
+                        LinkButton tur = new LinkButton();              
                         tur.Text = "Sin Turno";
+                        tur.Attributes.Add("OnClick","Open('" + tur.Text + "')");
+                        celda.ID = contaIDCeldas.ToString();
                         celda.Controls.Add(tur);
                         celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
@@ -150,8 +153,9 @@ namespace ProyectoFinal
                     {
                         TableCell celda = new TableCell();
                         LinkButton tur = new LinkButton();
-                        tur.Attributes.Add("onclick", "Open();");
                         tur.Text = "Sin Turno";
+                        tur.Attributes.Add("OnClick", "Open('" + tur.Text + "')");
+                        celda.ID = contaIDCeldas.ToString();
                         celda.Controls.Add(tur);
                         celda.Font.Bold = true;
                         fila2.Cells.Add(celda);
@@ -162,10 +166,9 @@ namespace ProyectoFinal
                     { 
                         TableCell celda = new TableCell();
                         LinkButton tur = new LinkButton();
-                        //celda.Text = turnosEmpleado[contadorTurnos + 1].ToString();
-                        //celda.Font.Bold = true;
-                        tur.Attributes.Add("onclick", "Open();");
                         tur.Text = turnosEmpleado[contadorTurnos + 1].ToString();
+                        tur.Attributes.Add("OnClick", "Open('" + tur.Text + "')");
+                        celda.ID = contaIDCeldas.ToString();
                         celda.Controls.Add(tur);
                         fila2.Cells.Add(celda);
                         contadorTurnos += 2;
@@ -174,12 +177,14 @@ namespace ProyectoFinal
                     {
                         TableCell celda = new TableCell();
                         LinkButton tur = new LinkButton();
-                        //tur.Attributes.Add("onclick", "Open();");
                         tur.Text = "Sin Turno";
+                        tur.Attributes.Add("OnClick", "Open('" + tur.Text + "')");
+                        celda.ID = contaIDCeldas.ToString();
                         celda.Controls.Add(tur);
-                        celda.Font.Bold = true;
+                        celda.Font.Bold = true;                      
                         fila2.Cells.Add(celda);
-                    }     
+                    }
+                    contaIDCeldas += 1;
                 }
                 /* SE AGREGA FILA2 LA CUAL CONTIENE LAS CELDAS CORRESPONDIENTES A LOS TURNOS */
                 ListaUsuario.Rows.Add(fila2);
@@ -205,6 +210,13 @@ namespace ProyectoFinal
                 Text2.Text = salida
                 End Sub */
         }
+
+        //public void Open(object sender, EventArgs e)
+        //{
+        //    LinkButton turno = (LinkButton)sender;
+        //    Session["val"] = turno.CommandArgument;
+        //    Server.Transfer("ModificaTurno.aspx?turno=" + Session["val"].ToString());
+        //}
     }
 }
 
