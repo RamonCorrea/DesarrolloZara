@@ -167,7 +167,7 @@ namespace ProyectoFinal
                         TableCell celda = new TableCell();
                         LinkButton tur = new LinkButton();
                         tur.Text = turnosEmpleado[contadorTurnos + 1].ToString();
-                        tur.Attributes.Add("OnClick", "Open('" + tur.Text + "')");
+                        tur.Attributes.Add("OnClick", "Open('" + tur.Text + "','" + ListaUsuario.Rows[rows].Cells[x].Text + "')");
                         celda.ID = contaIDCeldas.ToString();
                         celda.Controls.Add(tur);
                         fila2.Cells.Add(celda);
@@ -210,13 +210,6 @@ namespace ProyectoFinal
                 Text2.Text = salida
                 End Sub */
         }
-
-        //public void Open(object sender, EventArgs e)
-        //{
-        //    LinkButton turno = (LinkButton)sender;
-        //    Session["val"] = turno.CommandArgument;
-        //    Server.Transfer("ModificaTurno.aspx?turno=" + Session["val"].ToString());
-        //}
     }
 }
 

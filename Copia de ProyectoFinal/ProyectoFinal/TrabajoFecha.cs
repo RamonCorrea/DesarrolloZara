@@ -80,8 +80,8 @@ namespace ProyectoFinal
                 FirstDay = Convert.ToString(Dias[PrimerDia.DayOfWeek.ToString()]);
                 LastDay = Convert.ToString(Dias[UltimoDia.DayOfWeek.ToString()]);
             }
-            cadena1 = PrimerDia.ToString("dd/MM/yyyy");
-            cadena2 = UltimoDia.ToString("dd/MM/yyyy");
+            cadena1 = PrimerDia.ToString("yyyy/MM/dd");
+            cadena2 = UltimoDia.ToString("yyyy/MM/dd");
             
             ArrayList Datos = new ArrayList();
             Datos.Add(CantidadDias);
@@ -97,7 +97,7 @@ namespace ProyectoFinal
         public ArrayList TurnoEmpleadoPorFecha(string cod_empleado, string fecha_ini, string fecha_fin)
         {
                 /* CONEXION A LA BASE DE DATOS Y EJECUCION DE SP */
-                ConexionBaseDato conn = new ConexionBaseDato();
+                ConexionBaseDatos conn = new ConexionBaseDatos();
                 string sqlQuery = "EXEC PROC_TURNO_EMPLEADO '" + cod_empleado + "','" + fecha_ini + "','" + fecha_fin + "'";
 
                 /* SE PASA EL RESULTADO DE LA CONSULTA A UN DATATABLE, EL CUAL SE RECORRE PARA SACAR LOS DATOS DEL TURNO (FECHA,COD_TURNO) 
@@ -121,7 +121,7 @@ namespace ProyectoFinal
         public DataTable TurnosEmpresa(string codEmpresa)
         {
             string sqlQuery = "EXEC SP_TURNOS '" + codEmpresa + "'";
-            ConexionBaseDato conn = new ConexionBaseDato();
+            ConexionBaseDatos conn = new ConexionBaseDatos();
             DataTable tabla = new DataTable();
             SqlDataAdapter ds = new SqlDataAdapter(sqlQuery, conn.AbrirConexion());
             ds.Fill(tabla);

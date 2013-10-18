@@ -9,13 +9,13 @@ using System.Configuration;
 namespace ProyectoFinal
 {
     /* CLASE LA CUAL MANEJA CONEXIONES Y OPERACIONES EN LA BASE DE DATOS */ 
-    public class ConexionBaseDato
+    public class ConexionBaseDatos
     {
        private SqlConnection conexion;
        private string cadenaConexion;
         
         /* CONSTRUCTOR DE LA CLASE EL CUAL INSTANCIA LA VARIABLE DE CONEXION A LA BASE DATOS */
-        public ConexionBaseDato()
+        public ConexionBaseDatos()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["ConexionBaseDatos"].ConnectionString;
             conexion = new SqlConnection(cadenaConexion);

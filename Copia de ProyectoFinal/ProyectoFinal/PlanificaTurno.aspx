@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" CodeBehind="PlanificaTurno.aspx.cs" AutoEventWireup="true" Inherits="ProyectoFinal.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script language="javascript" type="text/javascript">
-        function Open(turno) 
+        function Open(turno,dia) 
         {
-           window.open("ModificaTurno.aspx?val=" + turno , "Modifica Turno", "width=400,height=400");
+           window.open("ModificaTurno.aspx?val=" + turno + "&dia=" + dia ,"Modifica Turno", "width=400,height=400");
         }
     </script>
    <form runat="server" method="post">

@@ -19,7 +19,7 @@ namespace ProyectoFinal
 
         protected void btnAsistencia_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Permisos.aspx");
+            Response.Redirect("LibroAsistencia.aspx");
         }
 
     }

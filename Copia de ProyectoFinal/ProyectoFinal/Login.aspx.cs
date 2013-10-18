@@ -96,7 +96,7 @@ namespace ProyectoFinal
             try
             {
                 string sqlquery = "Select UNIDAD_NEGOCIO,DESC_UNIDAD FROM P_UNIDAD_NEGOCIO Where COD_EMPRESA =" + CodEmpresa;
-                ConexionBaseDato conn = new ConexionBaseDato();
+                ConexionBaseDatos conn = new ConexionBaseDatos();
                 DataSet Tablavirtual = new DataSet();
 
                 SqlDataAdapter ds = new SqlDataAdapter(sqlquery, conn.AbrirConexion());

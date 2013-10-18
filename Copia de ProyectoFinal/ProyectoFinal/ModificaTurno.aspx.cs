@@ -19,6 +19,7 @@ namespace ProyectoFinal
             droTurnos.DataBind();
 
             txtTurnoEmple.Text = Request.QueryString["val"];
+            txtFecha.Text = Request.QueryString["dia"];
         }
     }
 }

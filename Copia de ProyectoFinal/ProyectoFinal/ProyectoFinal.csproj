@@ -70,7 +70,7 @@
     </Content>
     <Content Include="PlanificaTurno.aspx" />
     <Content Include="HoraExtra.aspx" />
-    <Content Include="Permisos.aspx" />
+    <Content Include="LibroAsistencia.aspx" />
     <Content Include="AsistenciaPeriodo.aspx" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
@@ -130,12 +130,12 @@
     <Compile Include="HoraExtra.aspx.designer.cs">
       <DependentUpon>HoraExtra.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Permisos.aspx.cs">
-      <DependentUpon>Permisos.aspx</DependentUpon>
+    <Compile Include="LibroAsistencia.aspx.cs">
+      <DependentUpon>LibroAsistencia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Permisos.aspx.designer.cs">
-      <DependentUpon>Permisos.aspx</DependentUpon>
+    <Compile Include="LibroAsistencia.aspx.designer.cs">
+      <DependentUpon>LibroAsistencia.aspx</DependentUpon>
     </Compile>
     <Compile Include="AsistenciaPeriodo.aspx.cs">
       <DependentUpon>AsistenciaPeriodo.aspx</DependentUpon>
@@ -159,6 +159,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Site1.Master" />
+    <None Include="Rpt_libro_asistencia_Ordenado_Apellidos.rpt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
