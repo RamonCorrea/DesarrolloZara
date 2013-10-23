@@ -1,0 +1,46 @@
+<asp:Table ID="DiasSemana" runat="server" CellSpacing="15" 
+       GridLines="Horizontal" CaptionAlign="Top" Caption="Turno Trabajador" CellPadding="4"
+        Font-Size="Large" HorizontalAlign="Center">
+        <asp:TableHeaderRow>
+            <asp:TableHeaderCell>Semana</asp:TableHeaderCell>
+            <asp:TableHeaderCell>Lunes</asp:TableHeaderCell>
+            <asp:TableHeaderCell>Martes</asp:TableHeaderCell>
+            <asp:TableHeaderCell>Miercoles</asp:TableHeaderCell>
+            <asp:TableHeaderCell>Jueves</asp:TableHeaderCell>
+            <asp:TableHeaderCell>Viernes</asp:TableHeaderCell>
+            <asp:TableHeaderCell>Sabado</asp:TableHeaderCell>
+            <asp:TableHeaderCell>Domingo</asp:TableHeaderCell>
+        </asp:TableHeaderRow>
+       </asp:Table>
+
+ public void LlenaTabla()
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                TableRow trow = new TableRow();
+                DiasSemana.Rows.Add(trow);
+                for (int j = 1; j < 9; j++)
+                {
+                    TableCell tcell = new TableCell();
+                    tcell.Text = DateTime.Now.ToString();
+                    trow.Cells.Add(tcell);
+                }
+            }
+        }
+
+        protected void BasicDatePicker1_SelectionChanged(object sender, EventArgs e)
+        {
+            LlenaTabla();
+        }
+
+        protected void btnAvance_Click(object sender, EventArgs e)
+        {
+            string fecha = BasicDatePicker1.Text;
+
+        }
+
+credenciales Zara
+	user = cllogam\logam
+	password = Sant1ago2!
+
+

@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ProyectoFinal.Site1"%>
+
+<html>
+<head>
+    <title></title>
+    <link rel="Stylesheet" type="text/css" href="Estilo.css" />
+</head>
+<body>
+<div id="contenedor">
+    <div id="Imagen">
+		<asp:Image ID="Image1" runat="server" Height="120px" ImageUrl="~/Dibujo.JPG" />
+	</div>
+
+    <div id="cabezera">
+        <br />
+    </div>
+
+    <div id="contenidoPage">
+		    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+	</div>	
+</div>
+</body>
+</html>
+
+			
+
